@@ -1,15 +1,17 @@
-import { Form } from './Form/Form';
-import { ContactList } from './ContactList/ContactList';
-import { Filter } from './Filter/Filter';
 import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { lazy } from 'react';
+import { useDispatch } from 'react-redux';
 import { fetchContacts } from 'redux/operations';
-import { getError, getIsLoading } from 'redux/selectors';
+import { Route, Routes } from 'react-router-dom';
+import { SharedLayout } from '../components/SharedLayout/SharedLayout';
+
+const Home = lazy(() => import('../pages/Home/Home'));
+const RegisterPage = lazy(() => import('../pages/RegisterPage/RegisterPage'));
+const LoginPage = lazy(() => import('../pages/LoginPage/LoginPage'));
+const ContactsPage = lazy(() => import('../pages/ContactsPage/ContactsPage'));
 
 export const App = () => {
   const dispatch = useDispatch();
-  const isLoading = useSelector(getIsLoading);
-  const error = useSelector(getError);
 
   useEffect(() => {
     dispatch(fetchContacts());
@@ -17,10 +19,14 @@ export const App = () => {
 
   return (
     <div>
-      <Form />
-      <Filter />
-      {isLoading && !error && <b>Request in progress...</b>}
-      <ContactList />
+      <Routes>
+        <Route path="/" element={<SharedLayout />}>
+          <Route index element={<Home />} />
+          <Route path="/register" element={<RegisterPage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/contacts" element={<ContactsPage />} />
+        </Route>
+      </Routes>
     </div>
   );
 };
