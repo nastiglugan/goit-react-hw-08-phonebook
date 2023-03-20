@@ -1,8 +1,8 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { FormWrap, Label, Input, BtnForm } from './Form.styled';
 import { nanoid } from 'nanoid';
-import { addContact } from 'redux/operations';
-import { getContacts } from '../../redux/selectors';
+import { addContact } from 'redux/contacts/operations';
+import { getContacts } from '../../redux/contacts/selectors';
 
 export const Form = () => {
   const dispatch = useDispatch();
