@@ -13,7 +13,7 @@ export const Form = () => {
 
     const form = {
       name: event.target.name.value,
-      phone: event.target.number.value,
+      number: event.target.number.value,
       id: nanoid(),
     };
 

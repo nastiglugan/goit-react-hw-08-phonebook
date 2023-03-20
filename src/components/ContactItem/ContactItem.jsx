@@ -16,7 +16,7 @@ export const ContactItem = ({ contact }) => {
     <ContactItemWrap>
       <ListItems>
         <Item>Name:{contact.name}</Item>
-        <Item>Tel:{contact.phone}</Item>
+        <Item>Tel:{contact.number}</Item>
       </ListItems>
       <DeleteBtn type="button" onClick={handleDelete}>
         Delete
