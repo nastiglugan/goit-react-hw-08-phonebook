@@ -1,11 +1,10 @@
 import styled from '@emotion/styled';
 
 export const FilterWrap = styled.div`
-  width: 330px;
   margin: 0 auto;
-  border: 1px solid lightgray;
-  padding: 30px;
-  background-color: lightblue;
+  /* border: 1px solid lightgray; */
+  padding: 10px;
+  text-align: center;
 `;
 export const LabelFilter = styled.label`
   display: flex;

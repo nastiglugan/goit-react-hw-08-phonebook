@@ -1,7 +1,8 @@
 import { useSelector } from 'react-redux';
-import { ContactWrap, List, ContactTitle } from './ContactList.styled';
+import { ContactWrap, List } from './ContactList.styled';
 import { ContactItem } from '../ContactItem/ContactItem';
 import { getContacts, getFilter } from '../../redux/contacts/selectors';
+import { Filter } from '../Filter/Filter';
 
 export const ContactList = () => {
   const contacts = useSelector(getContacts);
@@ -16,7 +17,7 @@ export const ContactList = () => {
     <div>
       {getVisibleContacts.length > 0 && (
         <ContactWrap>
-          <ContactTitle>Contact List</ContactTitle>
+          <Filter />
           <List>
             {getVisibleContacts.map(contact => {
               return (

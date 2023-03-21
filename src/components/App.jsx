@@ -7,6 +7,7 @@ import { SharedLayout } from '../components/SharedLayout/SharedLayout';
 import { useAuth } from '../hooks/useAuth';
 import { RestrictedRoute } from './RestrictedRout';
 import { PrivateRoute } from './PrivateRoute';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 const Home = lazy(() => import('../pages/Home'));
 const RegisterPage = lazy(() => import('../pages/RegisterPage'));
@@ -21,13 +22,32 @@ export const App = () => {
     dispatch(refreshUser());
   }, [dispatch]);
 
+  const theme = createTheme({
+    palette: {
+      primary: {
+        main: '#7986cb',
+      },
+      secondary: {
+        main: '#efd401',
+      },
+    },
+  });
+
   return (
-    <div>
+    <ThemeProvider theme={theme}>
       {!isRefreshing && (
         <Routes>
           <Route path="/" element={<SharedLayout />}>
             <Route index element={<Home />} />
-            <Route path="/register" element={<RegisterPage />} />
+            <Route
+              path="/register"
+              element={
+                <RestrictedRoute
+                  component={<RegisterPage />}
+                  redirectTo="/contacts"
+                />
+              }
+            />
             <Route
               path="/login"
               element={
@@ -49,6 +69,6 @@ export const App = () => {
           </Route>
         </Routes>
       )}
-    </div>
+    </ThemeProvider>
   );
 };

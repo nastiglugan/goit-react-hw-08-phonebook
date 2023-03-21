@@ -2,13 +2,13 @@ import styled from '@emotion/styled';
 
 export const FormWrap = styled.form`
   margin: 0 auto;
-  width: 330px;
+
   display: flex;
   flex-direction: column;
   align-items: center;
   border: 1px solid lightgray;
   padding: 30px;
-  background-color: lightblue;
+
   margin-bottom: 20px;
 `;
 

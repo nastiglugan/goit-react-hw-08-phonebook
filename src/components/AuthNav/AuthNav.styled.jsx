@@ -8,10 +8,11 @@ export const AuthNavigation = styled.nav`
 
 export const AuthNavigationLink = styled(NavLink)`
   text-decoration: none;
+
   color: white;
   font-size: 18px;
   font-weight: 500;
   &.active {
-    color: orange;
+    color: #ffee58;
   }
 `;
