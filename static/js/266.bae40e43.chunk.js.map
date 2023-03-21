@@ -1,0 +1,1 @@
+{"version":3,"file":"static/js/266.bae40e43.chunk.js","mappings":"2JAIA,UAJa,WACX,OAAO,oDACR,C","sources":["pages/Home.js"],"sourcesContent":["const Home = () => {\n  return <div>Welcome to contacts app</div>;\n};\n\nexport default Home;\n"],"names":[],"sourceRoot":""}
