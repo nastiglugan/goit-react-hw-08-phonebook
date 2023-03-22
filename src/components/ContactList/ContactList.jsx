@@ -2,7 +2,7 @@ import { useSelector } from 'react-redux';
 import { ContactWrap, List } from './ContactList.styled';
 import { ContactItem } from '../ContactItem/ContactItem';
 import { getContacts, getFilter } from '../../redux/contacts/selectors';
-import { Filter } from '../Filter/Filter';
+import { Alert } from '@mui/material';
 
 export const ContactList = () => {
   const contacts = useSelector(getContacts);
@@ -15,9 +15,8 @@ export const ContactList = () => {
 
   return (
     <div>
-      {getVisibleContacts.length > 0 && (
+      {getVisibleContacts.length > 0 ? (
         <ContactWrap>
-          <Filter />
           <List>
             {getVisibleContacts.map(contact => {
               return (
@@ -28,6 +27,10 @@ export const ContactList = () => {
             })}
           </List>
         </ContactWrap>
+      ) : (
+        <Alert severity="info" color="secondary">
+          <strong>Contact didn't find.</strong>
+        </Alert>
       )}
     </div>
   );

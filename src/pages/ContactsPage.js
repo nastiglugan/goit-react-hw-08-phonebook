@@ -1,5 +1,5 @@
 import { Form } from '../components/Form/Form';
-
+import { Filter } from '../components/Filter/Filter';
 import { ContactList } from '../components/ContactList/ContactList';
 import { useDispatch, useSelector } from 'react-redux';
 import { getIsLoading } from '../redux/contacts/selectors';
@@ -19,6 +19,7 @@ const ContactsPage = () => {
       {' '}
       <div>{isLoading && 'Request in progress...'}</div>
       <Form />
+      <Filter />
       <ContactList />
     </div>
   );

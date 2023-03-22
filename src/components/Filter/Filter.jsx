@@ -7,6 +7,7 @@ import { TextField, Box } from '@mui/material';
 export const Filter = () => {
   const dispatch = useDispatch();
   const inputValue = useSelector(getFilter);
+  // const contacts = useSelector(getContacts);
 
   const onChangeInput = e => dispatch(filterContact(e.target.value));
 
