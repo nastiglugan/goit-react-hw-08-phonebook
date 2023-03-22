@@ -6,7 +6,7 @@ export const FormWrap = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: 1px solid lightgray;
+
   padding: 30px;
 
   margin-bottom: 20px;

@@ -7,7 +7,6 @@ import { Alert } from '@mui/material';
 export const ContactList = () => {
   const contacts = useSelector(getContacts);
   const filter = useSelector(getFilter);
-  console.log(contacts);
 
   const getVisibleContacts = contacts.filter(contact =>
     contact.name.toLowerCase().includes(filter.toLowerCase())
@@ -15,7 +14,7 @@ export const ContactList = () => {
 
   return (
     <div>
-      {getVisibleContacts.length > 0 ? (
+      {getVisibleContacts.length > 0 && (
         <ContactWrap>
           <List>
             {getVisibleContacts.map(contact => {
@@ -27,9 +26,10 @@ export const ContactList = () => {
             })}
           </List>
         </ContactWrap>
-      ) : (
+      )}
+      {contacts.length > 0 && getVisibleContacts.length < 1 && (
         <Alert severity="info" color="secondary">
-          <strong>Contact didn't find.</strong>
+          <strong>Contact didn't find! </strong>
         </Alert>
       )}
     </div>

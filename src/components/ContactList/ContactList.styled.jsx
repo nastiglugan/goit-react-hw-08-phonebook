@@ -7,7 +7,6 @@ export const ContactWrap = styled.div`
   gap: 5px;
   align-items: center;
   margin: 20px auto;
-  border: 1px solid lightgray;
   padding: 5px;
 
   font-size: 15px;
