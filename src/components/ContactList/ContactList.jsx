@@ -13,8 +13,28 @@ export const ContactList = () => {
   );
 
   return (
+    // <div>
+    //   {getVisibleContacts.length > 0 && (
+    //     <ContactWrap>
+    //       <List>
+    //         {getVisibleContacts.map(contact => {
+    //           return (
+    //             <li key={contact.id}>
+    //               <ContactItem contact={contact} />
+    //             </li>
+    //           );
+    //         })}
+    //       </List>
+    //     </ContactWrap>
+    //   )}
+    //   {contacts.length > 0 && getVisibleContacts.length < 1 && (
+    //     <Alert severity="info" color="secondary">
+    //       <strong>Contact didn't find! </strong>
+    //     </Alert>
+    //   )}
+    // </div>
     <div>
-      {getVisibleContacts.length > 0 && (
+      {contacts.length > 0 ? (
         <ContactWrap>
           <List>
             {getVisibleContacts.map(contact => {
@@ -26,6 +46,10 @@ export const ContactList = () => {
             })}
           </List>
         </ContactWrap>
+      ) : (
+        <Alert severity="info">
+          <strong>Add your first contact </strong>
+        </Alert>
       )}
       {contacts.length > 0 && getVisibleContacts.length < 1 && (
         <Alert severity="info" color="secondary">
